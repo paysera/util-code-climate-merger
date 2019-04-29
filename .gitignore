@@ -1,3 +1,5 @@
+/config/publish_parameters.yml
 /vendor/
 box.phar
 code-climate-merger.phar
+composer.lock

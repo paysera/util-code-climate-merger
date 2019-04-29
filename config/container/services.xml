@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="service.report_merger"
+                 class="Paysera\Component\CodeClimateMerger\Service\ReportMerger">
+        </service>
+        <service id="service.report_handler"
+                 class="Paysera\Component\CodeClimateMerger\Service\ReportHandler">
+            <argument type="service" id="service.parser.checkstyle_parser" />
+            <argument type="service" id="service.report_merger" />
+            <argument type="service" id="service.converter.code_climate" />
+        </service>
+        <service id="service.converter.code_climate"
+                 class="Paysera\Component\CodeClimateMerger\Service\CodeClimateConverter" >
+            <argument type="service" id="service.fingerprint_generator" />
+        </service>
+        <service id="service.fingerprint_generator"
+                class="Paysera\Component\CodeClimateMerger\Service\FingerprintGenerator" />
+    </services>
+</container>

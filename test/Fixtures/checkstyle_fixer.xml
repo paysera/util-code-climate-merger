@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+    <file name="/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js">
+        <error line="5" column="13" severity="warning" message="Missing semicolon. (semi)" source="eslint.rules.semi"/>
+        <error line="7" column="2" severity="error" message="Unnecessary semicolon. (no-extra-semi)"
+               source="eslint.rules.no-extra-semi"/>
+    </file>
+    <file name="/src/Bundle/index.js">
+        <error line="45" column="13" severity="warning" message="Violations found: violation" source="eslint.rules.violation"/>
+        <error line="777" column="2" severity="error" message="Unnecessary semicolon. (no-extra-semi)"
+               source="eslint.rules.no-extra-semi"/>
+    </file>
+    <file name="src/Entity/Email.php">
+        <error severity="warning" source="PHP-CS-Fixer.php_basic_comment_php_doc_on_properties" message="Found violation(s) of type: php_basic_comment_php_doc_on_properties"/>
+        <error severity="warning" source="PHP-CS-Fixer.php_basic_code_style_directory_and_namespace" message="Found violation(s) of type: php_basic_code_style_directory_and_namespace"/>
+    </file>
+</checkstyle>

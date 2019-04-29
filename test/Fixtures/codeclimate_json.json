@@ -1,0 +1,152 @@
+[
+  {
+    "description": "Missing semicolon. (semi)",
+    "fingerprint": "6872fbb71adfdbd6bb68e7959a9a6201",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "5"
+      }
+    }
+  },
+  {
+    "description": "Unnecessary semicolon. (no-extra-semi)",
+    "fingerprint": "8894d83c04b4b75cff0357517ffd0f05",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "7"
+      }
+    }
+  },
+  {
+    "description": "Violations found: violation",
+    "fingerprint": "9cc6c2b83c2ee1c0602166cae9256d91",
+    "location": {
+      "path": "/src/Bundle/index.js",
+      "lines": {
+        "begin": "45"
+      }
+    }
+  },
+  {
+    "description": "Unnecessary semicolon. (no-extra-semi)",
+    "fingerprint": "199359b5919f20c7c8eab2c8ce31565d",
+    "location": {
+      "path": "/src/Bundle/index.js",
+      "lines": {
+        "begin": "777"
+      }
+    }
+  },
+  {
+    "description": "Found violation(s) of type: php_basic_comment_php_doc_on_properties",
+    "fingerprint": "b7b3ad5dacace8048ac56288d760ddaa",
+    "location": {
+      "path": "src/Entity/Email.php",
+      "lines": {
+        "begin": ""
+      }
+    }
+  },
+  {
+    "description": "Found violation(s) of type: php_basic_code_style_directory_and_namespace",
+    "fingerprint": "63b84744fef42a9ba86f8ffba2179d60",
+    "location": {
+      "path": "src/Entity/Email.php",
+      "lines": {
+        "begin": ""
+      }
+    }
+  },
+  {
+    "description": "'addOne' is defined but never used. (no-unused-vars)",
+    "fingerprint": "18bf57426929ce1dd86a9e1c3926181d",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "1"
+      }
+    }
+  },
+  {
+    "description": "Use the isNaN function to compare with NaN. (use-isnan)",
+    "fingerprint": "bf406ab7f93e964e8d7bf6ebd92b3af8",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "2"
+      }
+    }
+  },
+  {
+    "description": "Unexpected space before unary operator '++'. (space-unary-ops)",
+    "fingerprint": "b4b8c45423518fbc5b3251712bc62b30",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "3"
+      }
+    }
+  },
+  {
+    "description": "Missing semicolon. (semi)",
+    "fingerprint": "5b9a08084c75894f77a732e18fab7a3d",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "3"
+      }
+    }
+  },
+  {
+    "description": "Unnecessary 'else' after 'return'. (no-else-return)",
+    "fingerprint": "7621d7925dbd1337fdbc31e8e202a72f",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "4"
+      }
+    }
+  },
+  {
+    "description": "Expected indentation of 8 spaces but found 6. (indent)",
+    "fingerprint": "1859e25d294a2a4fd20b9f4e7d40977c",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "5"
+      }
+    }
+  },
+  {
+    "description": "Function 'addOne' expected a return value. (consistent-return)",
+    "fingerprint": "2bfe6b6c91c122bde55b2950a3727018",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "5"
+      }
+    }
+  },
+  {
+    "description": "Missing semicolon. (semi)",
+    "fingerprint": "6872fbb71adfdbd6bb68e7959a9a6201",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "5"
+      }
+    }
+  },
+  {
+    "description": "Unnecessary semicolon. (no-extra-semi)",
+    "fingerprint": "8894d83c04b4b75cff0357517ffd0f05",
+    "location": {
+      "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
+      "lines": {
+        "begin": "7"
+      }
+    }
+  }
+]

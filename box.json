@@ -1,0 +1,20 @@
+{
+    "output": "code-climate-merger.phar",
+    "chmod": "0755",
+    "compactors": [
+        "Herrera\\Box\\Compactor\\Php"
+    ],
+    "algorithm": "SHA1",
+    "finder": [
+        {
+            "name": ["*.php", "*.xml", "*.yml", "*.xsd"],
+            "exclude": ["test", "Tests", "tests"],
+            "in": ["src", "vendor", "config"]
+        }
+    ],
+    "blacklist": [
+        "config/publish_parameters.yml"
+    ],
+    "git-tag": "package_version",
+    "stub": "code-climate-merger"
+}

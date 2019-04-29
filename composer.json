@@ -1,0 +1,63 @@
+{
+    "name": "paysera/util-code-climate-merger",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Paysera\\Component\\CodeClimateMerger\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Paysera\\Component\\CodeClimateMerger\\Test\\": "test"
+        }
+    },
+    "require": {
+        "ext-simplexml": "*",
+        "ext-json": "*",
+        "php": ">=7.0",
+        "symfony/console": "^3.0",
+        "symfony/framework-bundle": "^3.0",
+        "padraic/phar-updater": "^1.0",
+        "paysera/lib-dependency-injection": "^1.1",
+        "doctrine/common": "^2.10",
+        "incenteev/composer-parameter-handler": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "php-http/guzzle6-adapter": "^1.1",
+        "lcobucci/jwt": "^3.2",
+        "knplabs/github-api": "^2.11"
+    },
+    "scripts": {
+        "custom-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "install-box": [
+            "curl -LSs https://box-project.github.io/box2/installer.php | php"
+        ],
+        "build": [
+            "php -dphar.readonly=0 box.phar build"
+        ],
+        "release": [
+            "bin/publish-release"
+        ],
+        "post-install-cmd": [
+            "@custom-scripts",
+            "@install-box"
+        ],
+        "post-update-cmd": [
+            "@custom-scripts",
+            "@install-box"
+        ]
+    },
+    "extra": {
+        "incenteev-parameters": [
+            {
+                "file": "config/publish_parameters.yml"
+            }
+        ]
+    },
+    "bin": [
+        "code-climate-merger.phar"
+    ]
+}

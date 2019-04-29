@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+use Paysera\Component\CodeClimateMerger\Console\Main;
+
+if (class_exists('Phar')) {
+    try {
+        Phar::mapPhar('code-climate-merger.phar');
+        require_once 'phar://code-climate-merger.phar/vendor/autoload.php';
+        $baseDir = 'phar://code-climate-merger.phar';
+    } catch (PharException $exception) {
+        require_once __DIR__ . '/vendor/autoload.php';
+        $baseDir = __DIR__;
+    }
+}
+
+$main = new Main('@package_version@', $baseDir);
+$application = $main->createApplication();
+
+$application->setDefaultCommand('merge', true);
+$application->run();
+
+__HALT_COMPILER();

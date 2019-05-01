@@ -7,8 +7,8 @@ use Paysera\Component\CodeClimateMerger\Entity\Report;
 interface ParserInterface
 {
     /**
-     * @param string $content
+     * @param string $file
      * @return Report
      */
-    public function parse(string $content);
+    public function parse(string $file);
 }

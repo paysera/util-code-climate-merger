@@ -10,9 +10,9 @@ use SimpleXMLElement;
 
 class CheckstyleParser implements ParserInterface
 {
-    public function parse(string $xmlContents)
+    public function parse(string $file)
     {
-        $contents = new SimpleXMLElement(file_get_contents($xmlContents));
+        $contents = new SimpleXMLElement(file_get_contents($file));
         $reportCollection = new ArrayCollection();
 
         foreach ($contents as $element) {

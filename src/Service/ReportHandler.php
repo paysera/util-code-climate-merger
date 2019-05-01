@@ -3,31 +3,31 @@ declare(strict_types=1);
 
 namespace Paysera\Component\CodeClimateMerger\Service;
 
-use Paysera\Component\CodeClimateMerger\Parser\CheckstyleParser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Paysera\Component\CodeClimateMerger\Parser\ParserManager;
 
 class ReportHandler
 {
-    private $checkstyleParser;
     private $reportMerger;
     private $codeClimateConverter;
+    private $parserManager;
 
     public function __construct(
-        CheckstyleParser $checkstyleParser,
         ReportMerger $reportMerger,
-        CodeClimateConverter $codeClimateConverter
+        CodeClimateConverter $codeClimateConverter,
+        ParserManager $parserManager
     ) {
-        $this->checkstyleParser = $checkstyleParser;
         $this->reportMerger = $reportMerger;
         $this->codeClimateConverter = $codeClimateConverter;
+        $this->parserManager = $parserManager;
     }
 
-    public function handle(string $firstFileContents, string $secondFileContents)
+    public function handle(ArrayCollection $files)
     {
-        $firstFileContents = $this->checkstyleParser->parse($firstFileContents);
-        $secondFileContents = $this->checkstyleParser->parse($secondFileContents);
+        $reports = $this->parserManager->manageParsing($files);
 
         $codeClimateReport = $this->codeClimateConverter->convert(
-            $this->reportMerger->merge($firstFileContents, $secondFileContents)
+            $this->reportMerger->merge($reports)
         );
 
         return $codeClimateReport;

@@ -8,6 +8,7 @@
         <service id="command.merge"
                  class="Paysera\Component\CodeClimateMerger\Command\MergeCommand" public="true" >
             <argument type="service" id="service.report_handler" />
+            <argument type="service" id="service.input_handler" />
             <tag name="console.command"/>
         </service>
     </services>

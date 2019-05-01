@@ -8,11 +8,11 @@ use Paysera\Component\CodeClimateMerger\Entity\Error;
 use Paysera\Component\CodeClimateMerger\Entity\Report;
 use SimpleXMLElement;
 
-class CheckstyleParser
+class CheckstyleParser implements ParserInterface
 {
     public function parse(string $xmlContents)
     {
-        $contents = new SimpleXMLElement($xmlContents);
+        $contents = new SimpleXMLElement(file_get_contents($xmlContents));
         $reportCollection = new ArrayCollection();
 
         foreach ($contents as $element) {

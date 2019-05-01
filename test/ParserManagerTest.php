@@ -7,31 +7,31 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Paysera\Component\CodeClimateMerger\Entity\Error;
 use Paysera\Component\CodeClimateMerger\Entity\Report;
 use Paysera\Component\CodeClimateMerger\Parser\CheckstyleParser;
+use Paysera\Component\CodeClimateMerger\Parser\ParserManager;
 use PHPUnit\Framework\TestCase;
 
-class ParserTest extends TestCase
+class ParserManagerTest extends TestCase
 {
     /**
-     * @var CheckstyleParser
+     * @var ParserManager
      */
-    private $checkstyleParser;
+    private $parserManager;
 
     public function setUp()
     {
-        $this->checkstyleParser = new CheckstyleParser();
+        $this->parserManager = new ParserManager();
+        $this->parserManager->addParser(new CheckstyleParser(), 'checkstyle');
     }
 
     public function testChecksyleParser()
     {
-        $checkstyle = file_get_contents(__DIR__ . '/Fixtures/checkstyle_fixer.xml');
+        $actual = $this->parserManager->manageParsing($this->getCheckstyleFile());
+        $expected = $this->getExpectedCheckstyle();
 
-        $actual = $this->checkstyleParser->parse($checkstyle);
-        $expected = $this->getExpected();
-
-        $this->assertEquals($expected, $actual);
+        $this->assertEquals($expected, $actual[0]);
     }
 
-    private function getExpected()
+    private function getExpectedCheckstyle()
     {
         $expected = new ArrayCollection();
 
@@ -97,5 +97,14 @@ class ParserTest extends TestCase
         );
 
         return $expected;
+    }
+
+    private function getCheckstyleFile()
+    {
+        return new ArrayCollection([
+            'checkstyle' =>  [
+                __DIR__ . '/Fixtures/checkstyle_fixer.xml'
+            ]
+        ]);
     }
 }

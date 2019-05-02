@@ -48,7 +48,7 @@ class CodeClimateConverterTest extends TestCase
                                         (new Error())
                                             ->setMessage('Missing semicolon. (semi)')
                                             ->setSource('eslint.rules.semi')
-                                            ->setLine('5')
+                                            ->setLine(5)
                                     ]
                                 )
                             ),
@@ -60,11 +60,11 @@ class CodeClimateConverterTest extends TestCase
                                         (new Error())
                                             ->setMessage('Unnecessary semicolon. (no-extra-semi)')
                                             ->setSource('eslint.rules.no-extra-semi')
-                                            ->setLine('7'),
+                                            ->setLine(7),
                                         (new Error())
                                             ->setMessage('Violations found')
                                             ->setSource('some.source')
-                                            ->setLine('33'),
+                                            ->setLine(33),
 
                                     ]
                                 )
@@ -79,7 +79,7 @@ class CodeClimateConverterTest extends TestCase
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {
-                "begin": "5"
+                "begin": 5
             }
         }
     },
@@ -89,7 +89,7 @@ class CodeClimateConverterTest extends TestCase
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {
-                "begin": "7"
+                "begin": 7
             }
         }
     },
@@ -99,7 +99,7 @@ class CodeClimateConverterTest extends TestCase
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {
-                "begin": "33"
+                "begin": 33
             }
         }
     }

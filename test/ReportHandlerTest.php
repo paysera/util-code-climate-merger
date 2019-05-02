@@ -5,7 +5,7 @@ namespace Paysera\Component\CodeClimateMerger\Test;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Paysera\Component\CodeClimateMerger\Parser\CheckstyleParser;
-use Paysera\Component\CodeClimateMerger\Parser\ParserManager;
+use Paysera\Component\CodeClimateMerger\Parser\ParserRegistry;
 use Paysera\Component\CodeClimateMerger\Service\CodeClimateConverter;
 use Paysera\Component\CodeClimateMerger\Service\FingerprintGenerator;
 use Paysera\Component\CodeClimateMerger\Service\ReportHandler;
@@ -21,7 +21,7 @@ class ReportHandlerTest extends TestCase
 
     public function setUp()
     {
-        $parserManager = new ParserManager();
+        $parserManager = new ParserRegistry();
         $parserManager->addParser(new CheckstyleParser(), 'checkstyle');
         $this->handler = new ReportHandler(
             new ReportMerger(),

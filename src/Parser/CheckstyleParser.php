@@ -21,7 +21,7 @@ class CheckstyleParser implements ParserInterface
             foreach ($element->children() as $child) {
                 $error = new Error();
                 $error
-                    ->setLine((string)$child['line'])
+                    ->setLine((int)$child['line'])
                     ->setColumn((string)$child['column'])
                     ->setMessage((string)$child['message'])
                     ->setSource((string)$child['source'])

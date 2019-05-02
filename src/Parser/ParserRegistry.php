@@ -5,7 +5,7 @@ namespace Paysera\Component\CodeClimateMerger\Parser;
 use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 
-class ParserManager
+class ParserRegistry
 {
     /**
      * @var ParserInterface[]
@@ -22,7 +22,7 @@ class ParserManager
         $this->parsers[$format] = $parser;
     }
 
-    public function manageParsing(ArrayCollection $filesCollection)
+    public function parse(ArrayCollection $filesCollection)
     {
         $collection = new ArrayCollection();
         foreach($filesCollection as $format => $files) {

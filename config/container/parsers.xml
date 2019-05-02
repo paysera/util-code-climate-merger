@@ -9,8 +9,8 @@
                  class="Paysera\Component\CodeClimateMerger\Parser\CheckstyleParser">
             <tag name="parser" format="checkstyle" />
         </service>
-        <service id="service.parser.parser_manager"
-                 class="Paysera\Component\CodeClimateMerger\Parser\ParserManager">
+        <service id="service.parser.parser_registry"
+                 class="Paysera\Component\CodeClimateMerger\Parser\ParserRegistry">
         </service>
     </services>
 </container>

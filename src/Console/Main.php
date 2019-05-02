@@ -38,7 +38,7 @@ class Main
         $containerBuilder->setParameter('root_dir', $this->baseDir);
 
         $containerBuilder->addCompilerPass(new AddTaggedCompilerPass(
-                'service.parser.parser_manager',
+                'service.parser.parser_registry',
                 'parser',
                 'addParser',
                 ['format']

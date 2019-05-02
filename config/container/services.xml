@@ -17,7 +17,7 @@
                  class="Paysera\Component\CodeClimateMerger\Service\ReportHandler">
             <argument type="service" id="service.report_merger" />
             <argument type="service" id="service.converter.code_climate" />
-            <argument type="service" id="service.parser.parser_manager" />
+            <argument type="service" id="service.parser.parser_registry" />
         </service>
         <service id="service.converter.code_climate"
                  class="Paysera\Component\CodeClimateMerger\Service\CodeClimateConverter" >

@@ -6,7 +6,7 @@ namespace Paysera\Component\CodeClimateMerger\Entity;
 class Error
 {
     /**
-     * @var string
+     * @var int
      */
     private $line;
 
@@ -34,10 +34,10 @@ class Error
     }
 
     /**
-     * @param string $line
+     * @param int $line
      * @return $this
      */
-    public function setLine(string $line)
+    public function setLine(int $line)
     {
         $this->line = $line;
         return $this;

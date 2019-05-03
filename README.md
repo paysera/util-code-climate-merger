@@ -1,4 +1,4 @@
-# util-code-climate-merger
+# util-code-climate-merger [![Build Status](https://travis-ci.org/paysera/util-code-climate-merger.svg?branch=master)](https://travis-ci.org/paysera/util-code-climate-merger)
 merges checkstyle format to gitlab codeclimate supported format.
 
 ## installation

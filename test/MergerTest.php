@@ -21,13 +21,12 @@ class MergerTest extends TestCase
 
     /**
      * @dataProvider dataProviderForMerge
-     * @param ArrayCollection $phpCsFixerResults
-     * @param ArrayCollection $eslintResults
+     * @param ArrayCollection $reports
      * @param string $count
      */
-    public function testMergeReports(ArrayCollection $phpCsFixerResults, ArrayCollection $eslintResults, string $count)
+    public function testMergeReports(ArrayCollection $reports, string $count)
     {
-        $merged = $this->merger->merge($phpCsFixerResults, $eslintResults);
+        $merged = $this->merger->merge($reports);
 
         $this->assertEquals($count, $merged->count());
     }
@@ -36,25 +35,48 @@ class MergerTest extends TestCase
     {
         return [
             'count should be the same no. 1' => [
-                new ArrayCollection([1, 2, 3]),
-                new ArrayCollection([4, 5]),
+                new ArrayCollection([
+                    new ArrayCollection([1, 2, 3]),
+                    new ArrayCollection([4, 5]),
+                ]),
                 '5'
             ],
             'count should be the same no. 2' => [
-                new ArrayCollection([1, 2, 3, 4, 5, 6, 7]),
-                new ArrayCollection([8, 9, 10, 11]),
+                new ArrayCollection([
+                    new ArrayCollection([1, 2, 3, 4, 5, 6, 7]),
+                    new ArrayCollection([8, 9, 10, 11]),
+                ]),
                 '11'
             ],
             'count should be the same no. 3' => [
-                new ArrayCollection([1, 2, 3, '', 123, 1, '']),
-                new ArrayCollection([1, 2, '']),
+                new ArrayCollection([
+                    new ArrayCollection([1, 2, 3, '', 123, 1, '']),
+                    new ArrayCollection([1, 2, '']),
+                ]),
                 '10'
             ],
             'count should be the same no. 4' => [
-                new ArrayCollection([1]),
-                new ArrayCollection([]),
+                new ArrayCollection([
+                    new ArrayCollection([1]),
+                    new ArrayCollection([]),
+                ]),
                 '1'
-            ]
+            ],
+            'count should be the same no. 5' => [
+                new ArrayCollection([
+                    new ArrayCollection([]),
+                ]),
+                '0'
+            ],
+            'count should be the same no. 6' => [
+                new ArrayCollection([
+                    new ArrayCollection([]),
+                    new ArrayCollection([1, 2]),
+                    new ArrayCollection([4, 7]),
+                    new ArrayCollection([13, 88]),
+                ]),
+                '6'
+            ],
         ];
     }
 }

@@ -4,15 +4,20 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter type="collection" key="supported_formats">
+            <parameter>checkstyle</parameter>
+        </parameter>
+    </parameters>
     <services>
         <service id="service.report_merger"
                  class="Paysera\Component\CodeClimateMerger\Service\ReportMerger">
         </service>
         <service id="service.report_handler"
                  class="Paysera\Component\CodeClimateMerger\Service\ReportHandler">
-            <argument type="service" id="service.parser.checkstyle_parser" />
             <argument type="service" id="service.report_merger" />
             <argument type="service" id="service.converter.code_climate" />
+            <argument type="service" id="service.parser.parser_registry" />
         </service>
         <service id="service.converter.code_climate"
                  class="Paysera\Component\CodeClimateMerger\Service\CodeClimateConverter" >
@@ -20,5 +25,10 @@
         </service>
         <service id="service.fingerprint_generator"
                 class="Paysera\Component\CodeClimateMerger\Service\FingerprintGenerator" />
+
+        <service id="service.input_handler"
+                 class="Paysera\Component\CodeClimateMerger\Service\InputHandler">
+                <argument>%supported_formats%</argument>
+        </service>
     </services>
 </container>

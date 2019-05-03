@@ -5,7 +5,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "5"
+        "begin": 5
       }
     }
   },
@@ -15,7 +15,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "7"
+        "begin": 7
       }
     }
   },
@@ -25,7 +25,7 @@
     "location": {
       "path": "/src/Bundle/index.js",
       "lines": {
-        "begin": "45"
+        "begin": 45
       }
     }
   },
@@ -35,27 +35,27 @@
     "location": {
       "path": "/src/Bundle/index.js",
       "lines": {
-        "begin": "777"
+        "begin": 777
       }
     }
   },
   {
     "description": "Found violation(s) of type: php_basic_comment_php_doc_on_properties",
-    "fingerprint": "b7b3ad5dacace8048ac56288d760ddaa",
+    "fingerprint": "ff5fb4921189e24893f7d46c047c7729",
     "location": {
       "path": "src/Entity/Email.php",
       "lines": {
-        "begin": ""
+        "begin": 0
       }
     }
   },
   {
     "description": "Found violation(s) of type: php_basic_code_style_directory_and_namespace",
-    "fingerprint": "63b84744fef42a9ba86f8ffba2179d60",
+    "fingerprint": "8364beef21110424244a93f57af19f8d",
     "location": {
       "path": "src/Entity/Email.php",
       "lines": {
-        "begin": ""
+        "begin": 0
       }
     }
   },
@@ -65,7 +65,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "1"
+        "begin": 1
       }
     }
   },
@@ -75,7 +75,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "2"
+        "begin": 2
       }
     }
   },
@@ -85,7 +85,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "3"
+        "begin": 3
       }
     }
   },
@@ -95,7 +95,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "3"
+        "begin": 3
       }
     }
   },
@@ -105,7 +105,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "4"
+        "begin": 4
       }
     }
   },
@@ -115,7 +115,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "5"
+        "begin": 5
       }
     }
   },
@@ -125,7 +125,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "5"
+        "begin": 5
       }
     }
   },
@@ -135,7 +135,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "5"
+        "begin": 5
       }
     }
   },
@@ -145,7 +145,7 @@
     "location": {
       "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
       "lines": {
-        "begin": "7"
+        "begin": 7
       }
     }
   }

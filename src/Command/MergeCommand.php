@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Paysera\Component\CodeClimateMerger\Command;
 
-use Exception;
+use Paysera\Component\CodeClimateMerger\Service\InputHandler;
 use Paysera\Component\CodeClimateMerger\Service\ReportHandler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -14,11 +14,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 class MergeCommand extends Command
 {
     private $reportHandler;
+    private $inputHandler;
 
-    public function __construct(ReportHandler $reportHandler)
-    {
+    public function __construct(
+        ReportHandler $reportHandler,
+        InputHandler $inputHandler
+    ) {
         parent::__construct();
         $this->reportHandler = $reportHandler;
+        $this->inputHandler = $inputHandler;
     }
 
     protected function configure()
@@ -33,20 +37,9 @@ class MergeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $checkstyle = $input->getOption('checkstyle');
-        if (count($checkstyle) !== 2) {
-            throw new Exception('must provide two files to merge');
-        }
-        $fileContents = [];
-        for ($i = 0; $i < count($checkstyle); $i++) {
-            if (!file_exists($checkstyle[$i])) {
-                throw new Exception(sprintf('cannot locate file: %s', $checkstyle[$i]));
-            }
+        $files = $this->inputHandler->handle($input->getOptions());
 
-            $fileContents[$i] = file_get_contents($checkstyle[$i]);
-        }
-
-        $result = $this->reportHandler->handle($fileContents[0], $fileContents[1]);
+        $result = $this->reportHandler->handle($files);
 
         $file = file_put_contents($input->getArgument('target-file'), $result);
         if ($file) {

@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Paysera\Component\CodeClimateMerger\Test;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Paysera\Component\CodeClimateMerger\Parser\CheckstyleParser;
+use Paysera\Component\CodeClimateMerger\Parser\ParserRegistry;
 use Paysera\Component\CodeClimateMerger\Service\CodeClimateConverter;
 use Paysera\Component\CodeClimateMerger\Service\FingerprintGenerator;
 use Paysera\Component\CodeClimateMerger\Service\ReportHandler;
@@ -19,18 +21,24 @@ class ReportHandlerTest extends TestCase
 
     public function setUp()
     {
+        $parserManager = new ParserRegistry();
+        $parserManager->addParser(new CheckstyleParser(), 'checkstyle');
         $this->handler = new ReportHandler(
-            new CheckstyleParser(),
             new ReportMerger(),
-            new CodeClimateConverter(new FingerprintGenerator())
+            new CodeClimateConverter(new FingerprintGenerator()),
+            $parserManager
         );
     }
 
     public function testHandleReportMerge()
     {
         $actual = $this->handler->handle(
-            file_get_contents(__DIR__ . '/Fixtures/checkstyle_fixer.xml'),
-            file_get_contents(__DIR__ . '/Fixtures/checkstyle_eslint.xml')
+            new ArrayCollection([
+                'checkstyle' => [
+                    __DIR__ . '/Fixtures/checkstyle_fixer.xml',
+                    __DIR__ . '/Fixtures/checkstyle_eslint.xml',
+                ]
+            ])
         );
 
         $this->assertJsonStringEqualsJsonFile(__DIR__ . '/Fixtures/codeclimate_json.json', $actual);

@@ -7,12 +7,18 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class ReportMerger
 {
-    public function merge(ArrayCollection $phpCsFixerResults, ArrayCollection $eslintResults)
+    public function merge(ArrayCollection $results)
     {
-        foreach ($eslintResults as $eslintResult) {
-            $phpCsFixerResults->add($eslintResult);
-        }
+        $mergedReports = new ArrayCollection();
 
-        return $phpCsFixerResults;
+        array_map(function ($result) use ($mergedReports) {
+            foreach ($result as $file) {
+                $mergedReports->add($file);
+            }
+        },
+        $results->toArray()
+        );
+
+        return $mergedReports;
     }
 }

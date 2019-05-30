@@ -18,8 +18,8 @@
         "symfony/console": "^3.0",
         "symfony/framework-bundle": "^3.0",
         "padraic/phar-updater": "^1.0",
-        "paysera/lib-dependency-injection": "^1.1",
-        "doctrine/common": "^2.10",
+        "paysera/lib-dependency-injection": "1.0",
+        "doctrine/common": "^2.7.3",
         "incenteev/composer-parameter-handler": "^2.1"
     },
     "require-dev": {

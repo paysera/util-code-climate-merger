@@ -12,10 +12,10 @@ class CheckstyleParser implements ParserInterface
 {
     public function parse(string $file)
     {
-        $contents = new SimpleXMLElement(file_get_contents($file));
+        $rootElement = new SimpleXMLElement(file_get_contents($file));
         $reportCollection = new ArrayCollection();
 
-        foreach ($contents as $element) {
+        foreach ($rootElement->children() as $element) {
             $report = new Report();
             $report->setFilename((string)$element['name']);
             foreach ($element->children() as $child) {
@@ -23,6 +23,7 @@ class CheckstyleParser implements ParserInterface
                 $error
                     ->setLine((int)$child['line'])
                     ->setColumn((string)$child['column'])
+                    ->setSeverity((string)$child['severity'])
                     ->setMessage((string)$child['message'])
                     ->setSource((string)$child['source'])
                 ;

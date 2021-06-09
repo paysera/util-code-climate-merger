@@ -24,6 +24,7 @@ class CodeClimateConverter
                 $codeClimateReport[] = [
                     'description' => $error->getMessage(),
                     'fingerprint' => $this->fingerprintGenerator->generate($report->getFilename(), $error),
+                    'severity' => $error->getSeverity(),
                     'location' => [
                         'path' => $report->getFilename(),
                         'lines' => [

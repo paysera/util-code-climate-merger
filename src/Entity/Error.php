@@ -26,6 +26,11 @@ class Error
     private $source;
 
     /**
+     * @var string
+     */
+    private $severity;
+
+    /**
      * @return string
      */
     public function getLine()
@@ -94,6 +99,21 @@ class Error
     public function setSource(string $source)
     {
         $this->source = $source;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSeverity()
+    {
+        return $this->severity;
+    }
+
+    public function setSeverity(string $severity): self
+    {
+        $this->severity = $severity;
+
         return $this;
     }
 }

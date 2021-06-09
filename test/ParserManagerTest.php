@@ -43,11 +43,13 @@ class ParserManagerTest extends TestCase
                         [
                             (new Error())
                                 ->setMessage('Missing semicolon. (semi)')
+                                ->setSeverity('warning')
                                 ->setSource('eslint.rules.semi')
                                 ->setLine(5)
                                 ->setColumn('13'),
                             (new Error())
                                 ->setMessage('Unnecessary semicolon. (no-extra-semi)')
+                                ->setSeverity('error')
                                 ->setSource('eslint.rules.no-extra-semi')
                                 ->setLine(7)
                                 ->setColumn('2'),
@@ -63,11 +65,13 @@ class ParserManagerTest extends TestCase
                         [
                             (new Error())
                                 ->setMessage('Violations found: violation')
+                                ->setSeverity('warning')
                                 ->setSource('eslint.rules.violation')
                                 ->setLine(45)
                                 ->setColumn('13'),
                             (new Error())
                                 ->setMessage('Unnecessary semicolon. (no-extra-semi)')
+                                ->setSeverity('error')
                                 ->setSource('eslint.rules.no-extra-semi')
                                 ->setLine(777)
                                 ->setColumn('2'),
@@ -83,11 +87,13 @@ class ParserManagerTest extends TestCase
                         [
                             (new Error())
                                 ->setMessage('Found violation(s) of type: php_basic_comment_php_doc_on_properties')
+                                ->setSeverity('warning')
                                 ->setSource('PHP-CS-Fixer.php_basic_comment_php_doc_on_properties')
                                 ->setLine(0)
                                 ->setColumn(''),
                             (new Error())
                                 ->setMessage('Found violation(s) of type: php_basic_code_style_directory_and_namespace')
+                                ->setSeverity('warning')
                                 ->setSource('PHP-CS-Fixer.php_basic_code_style_directory_and_namespace')
                                 ->setLine(0)
                                 ->setColumn(''),

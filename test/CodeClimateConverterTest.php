@@ -31,7 +31,7 @@ class CodeClimateConverterTest extends TestCase
     {
         $actual = $this->codeClimateConverter->convert($actual);
 
-        $this->assertEquals($expected, $actual);
+        $this->assertJsonStringEqualsJsonString($expected, $actual);
     }
 
     public function dataProviderForConversion()
@@ -47,6 +47,7 @@ class CodeClimateConverterTest extends TestCase
                                     [
                                         (new Error())
                                             ->setMessage('Missing semicolon. (semi)')
+                                            ->setSeverity('warning')
                                             ->setSource('eslint.rules.semi')
                                             ->setLine(5)
                                     ]
@@ -59,6 +60,7 @@ class CodeClimateConverterTest extends TestCase
                                     [
                                         (new Error())
                                             ->setMessage('Unnecessary semicolon. (no-extra-semi)')
+                                            ->setSeverity('error')
                                             ->setSource('eslint.rules.no-extra-semi')
                                             ->setLine(7),
                                         (new Error())
@@ -76,6 +78,7 @@ class CodeClimateConverterTest extends TestCase
     {
         "description": "Missing semicolon. (semi)",
         "fingerprint": "6872fbb71adfdbd6bb68e7959a9a6201",
+        "severity": "warning",
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {
@@ -86,6 +89,7 @@ class CodeClimateConverterTest extends TestCase
     {
         "description": "Unnecessary semicolon. (no-extra-semi)",
         "fingerprint": "8894d83c04b4b75cff0357517ffd0f05",
+        "severity": "error",
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {

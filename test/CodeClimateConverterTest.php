@@ -89,7 +89,7 @@ class CodeClimateConverterTest extends TestCase
     {
         "description": "Unnecessary semicolon. (no-extra-semi)",
         "fingerprint": "8894d83c04b4b75cff0357517ffd0f05",
-        "severity": "info",
+        "severity": "infoo",
         "location": {
             "path": "/var/lib/jenkins/workspace/Releases/eslint Release/eslint/fullOfProblems.js",
             "lines": {

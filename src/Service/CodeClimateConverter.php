@@ -21,7 +21,7 @@ class CodeClimateConverter
         /** @var Report $report */
         foreach ($mergedCheckstyleReport as $report) {
             foreach ($report->getErrors() as $error) {
-                $codeClimateReport[] = [
+                $issue = [
                     'description' => $error->getMessage(),
                     'fingerprint' => $this->fingerprintGenerator->generate($report->getFilename(), $error),
                     'location' => [
@@ -31,6 +31,11 @@ class CodeClimateConverter
                         ],
                     ],
                 ];
+                if ($error->getSeverity() !== null) {
+                    $issue['severity'] = $error->getSeverity();
+                }
+
+                $codeClimateReport[] = $issue;
             }
 
         }
